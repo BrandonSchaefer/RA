@@ -20,4 +20,5 @@ endif()
 
 configure_file(${CMAKE_SOURCE_DIR}/include/RA_config.h.cmake ${CMAKE_BINARY_DIR}/include/RA_config.h)
 
+add_subdirectory(include)
 add_subdirectory(src)

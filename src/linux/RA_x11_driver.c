@@ -3,6 +3,8 @@
 
 #include <stddef.h>
 
+#include <stdio.h>
+
 #define DEFAULT_X11_LIB "libX11.so"
 
 #define X_OPEN_DISPLAY  "XOpenDisplay"
@@ -17,18 +19,24 @@ static int X11_Available(void)
   void* display;
   int ret = 0;
 
-  open_display  = LoadFunction(handle, X_OPEN_DISPLAY);
-  close_display = LoadFunction(handle, X_CLOSE_DISPLAY);
-
-  display = open_display(NULL);
-
-  if (display != NULL)
+  if (handle != NULL)
   {
-    ret = 1;
-    close_display(display);
-  }
+    open_display  = LoadFunction(handle, X_OPEN_DISPLAY);
+    close_display = LoadFunction(handle, X_CLOSE_DISPLAY);
 
-  CloseObject(handle);
+    if (open_display != NULL && close_display != NULL)
+    {
+      display = open_display(NULL);
+
+      if (display != NULL)
+      {
+        ret = 1;
+        close_display(display);
+      }
+    }
+
+    CloseObject(handle);
+  }
 
   return ret;
 }

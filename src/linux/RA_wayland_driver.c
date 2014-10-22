@@ -17,18 +17,24 @@ static int WAYLAND_Available(void)
   void* display;
   int ret = 0;
 
-  open_display  = LoadFunction(handle, WL_CONNECT);
-  close_display = LoadFunction(handle, WL_DISCONNECT);
-
-  display = open_display(NULL);
-
-  if (display != NULL)
+  if (handle != NULL)
   {
-    ret = 1;
-    close_display(display);
-  }
+    open_display  = LoadFunction(handle, WL_CONNECT);
+    close_display = LoadFunction(handle, WL_DISCONNECT);
 
-  CloseObject(handle);
+    if (open_display != NULL && close_display != NULL)
+    {
+      display = open_display(NULL);
+
+      if (display != NULL)
+      {
+        ret = 1;
+        close_display(display);
+      }
+    }
+
+    CloseObject(handle);
+  }
 
   return ret;
 }

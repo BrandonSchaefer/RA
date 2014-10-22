@@ -21,19 +21,28 @@ static int MIR_Available(void)
 
   handle  = LoadObject(DEFAULT_MIR_LIB);
 
-  connect = LoadFunction(handle, MIR_CONNECT_SYNC);
-  //release = LoadFunction(handle, MIR_CONNECT_RELEASE);
-  valid   = LoadFunction(handle, MIR_CONNECT_VALID);
+  if (handle != NULL)
+  {
+    connect = LoadFunction(handle, MIR_CONNECT_SYNC);
+    //release = LoadFunction(handle, MIR_CONNECT_RELEASE);
+    valid   = LoadFunction(handle, MIR_CONNECT_VALID);
 
-  connection = connect(NULL, __PRETTY_FUNCTION__);
+    if (connect != NULL &&
+        //release != NULL &&
+        valid   != NULL)
+    {
 
-  ret = valid(connection);
+      connection = connect(NULL, __PRETTY_FUNCTION__);
 
-  // FIXME Something is strange causing a SIGHUP after a release?
-  //if (ret)
-    //release(connection);
+      ret = valid(connection);
 
-  CloseObject(handle);
+      // FIXME Something is strange causing a SIGHUP after a release?
+      //if (ret)
+        //release(connection);
+    }
+
+    CloseObject(handle);
+  }
 
   return ret;
 }

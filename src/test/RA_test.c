@@ -1,6 +1,8 @@
 #include <RA_config.h>
 #include "../RA_sys.h"
 
+#include <RA_driver_available.h>
+
 #include <stdio.h>
 
 /* TODO Move me to an actual API file, where we can check what is around and not. */
