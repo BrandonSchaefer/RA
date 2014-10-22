@@ -1,0 +1,14 @@
+Source: ra
+Section: libs
+Priority: optional
+Maintainer: Brandon Schaefer <brandon.schaefer@canonical.com>
+Build-Depends: cmake,
+               debhelper (>= 8.0.0),
+Standards-Version: 3.9.4
+Homepage: https://github.com/BrandonSchaefer/RA
+
+Package: ra
+Architecture: any
+Depends: ${shlibs:Depends},
+         ${misc:Depends},
+Description: Simple library that will check dynamically if you're able to render on a specfic display server (ie. Mir/Wayland/X11)

@@ -37,7 +37,7 @@ static int MIR_Available(void)
 
   void* handle = NULL;
   void* connection;
-  int ret;
+  int ret = 0;
 
   handle  = LoadObject(DEFAULT_MIR_LIB);
 
