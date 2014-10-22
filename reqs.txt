@@ -1,0 +1,4 @@
+1) Must dynamically load a video driver backend. Only use GL context only.
+  a) Auto detect supported video display server (ie. X11, MIR, Wayland).
+
+to be continuned.
