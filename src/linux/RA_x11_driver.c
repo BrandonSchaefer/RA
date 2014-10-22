@@ -17,6 +17,8 @@
  * Authored by: Brandon Schaefer <brandontschaefer@gmail.com>
  */
 
+#include <RA_driver_finder.h>
+
 #include "../RA_dlopen.h"
 #include "../RA_sys.h"
 

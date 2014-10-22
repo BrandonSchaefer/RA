@@ -16,6 +16,7 @@
  *
  * Authored by: Brandon Schaefer <brandontschaefer@gmail.com>
  */
+#include <RA_driver_finder.h>
 
 #include "../RA_sys.h"
 #include "../RA_dlopen.h"
@@ -66,4 +67,4 @@ static int MIR_Available(void)
   return ret;
 }
 
-VideoDriver MIR_driver = { "Mir", &MIR_Available };
+VideoDriver MIR_driver = { MIR_DRIVER, &MIR_Available };
