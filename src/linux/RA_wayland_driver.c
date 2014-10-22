@@ -27,6 +27,8 @@ static int WAYLAND_Available(void)
     close_display(display);
   }
 
+  CloseObject(handle);
+
   return ret;
 }
 
