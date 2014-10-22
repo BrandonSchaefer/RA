@@ -3,4 +3,4 @@
 
 #cmakedefine CHECK_LINUX_DRIVERS @CHECK_LINUX_DRIVERS@
 
-#endif // RA_CONF_H
+#endif /* RA_CONF_H */

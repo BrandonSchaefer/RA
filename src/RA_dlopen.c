@@ -16,10 +16,12 @@ void* LoadObject(char const* sofile)
 
 void* LoadFunction(void* handle, char const* name)
 {
+  void* symbol;
+
   /* Clear the last dlerror, so we can be sure theres no error in dlsym */
   dlerror();
 
-  void* symbol = dlsym(handle, name);
+  symbol = (void*)dlsym(handle, name);
   if (symbol == NULL || dlerror() != NULL)
     fprintf(stderr, "Failed loading %s : %s\n", name, (char const*)dlerror());
 

@@ -14,12 +14,13 @@ static int WAYLAND_Available(void)
   void  (*close_display) (void* display);
 
   void* handle = LoadObject(DEFAULT_WAYLAND_LIB);
+  void* display;
   int ret = 0;
 
   open_display  = LoadFunction(handle, WL_CONNECT);
   close_display = LoadFunction(handle, WL_DISCONNECT);
 
-  void* display = open_display(NULL);
+  display = open_display(NULL);
 
   if (display != NULL)
   {
@@ -32,4 +33,4 @@ static int WAYLAND_Available(void)
   return ret;
 }
 
-VideoDriver WAYLAND_driver = { "WAYLAND", &WAYLAND_Available };
+VideoDriver WAYLAND_driver = { "Wayland", &WAYLAND_Available };

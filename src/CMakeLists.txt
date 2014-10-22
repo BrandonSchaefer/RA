@@ -1,5 +1,4 @@
 set(RA_SRC
-     RA_test.c
      RA_dlopen.c
    )
 
@@ -17,9 +16,27 @@ set(RA_HDR
      RA_sys.h
    )
 
+set (PREFIXDIR "${CMAKE_INSTALL_PREFIX}")
+set (EXEC_PREFIX "${CMAKE_INSTALL_PREFIX}")
+set (LIBDIR "${CMAKE_INSTALL_PREFIX}/lib")
+set (INCLUDEDIR "${CMAKE_INSTALL_PREFIX}/include")
+
+configure_file (ra.pc.cmake ${CMAKE_CURRENT_BINARY_DIR}/ra.pc @ONLY)
+install (FILES ${CMAKE_CURRENT_BINARY_DIR}/ra.pc
+         DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/pkgconfig)
+
 include_directories(${CMAKE_BINARY_DIR}/include)
 
-add_executable(../ra_test ${RA_SRC} ${RA_HDR})
+#add_executable(../ra_test ${RA_SRC} ${RA_HDR})
 
-#FIXME Add a check if dlopen is around, if not :(
-target_link_libraries(../ra_test -ldl)
+#target_link_libraries(../ra_test ${CMAKE_DL_LIBS})
+
+add_library (ra SHARED ${RA_SRC} ${RA_HDR})
+
+install (TARGETS ra
+         RUNTIME DESTINATION bin
+         ARCHIVE DESTINATION lib
+         LIBRARY DESTINATION lib
+        )
+
+add_subdirectory(test)

@@ -1,9 +1,9 @@
 #include <RA_config.h>
-#include "RA_sys.h"
+#include "../RA_sys.h"
 
 #include <stdio.h>
 
-// TODO Move me to an actual API file, where we can check what is around and not.
+/* TODO Move me to an actual API file, where we can check what is around and not. */
 static VideoDriver* drivers[] =
 {
 #if CHECK_LINUX_DRIVERS

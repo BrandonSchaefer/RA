@@ -16,15 +16,18 @@ static int MIR_Available(void)
   int   (*valid)   (void* connection);
 
   void* handle = NULL;
+  void* connection;
+  int ret;
+
   handle  = LoadObject(DEFAULT_MIR_LIB);
 
   connect = LoadFunction(handle, MIR_CONNECT_SYNC);
   //release = LoadFunction(handle, MIR_CONNECT_RELEASE);
   valid   = LoadFunction(handle, MIR_CONNECT_VALID);
 
-  void* connection = connect(NULL, __PRETTY_FUNCTION__);
+  connection = connect(NULL, __PRETTY_FUNCTION__);
 
-  int ret = valid(connection);
+  ret = valid(connection);
 
   // FIXME Something is strange causing a SIGHUP after a release?
   //if (ret)
