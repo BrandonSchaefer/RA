@@ -1,3 +1,0 @@
-1) Must dynamically check if a video driver is able to be used.
-
-to be continuned....
