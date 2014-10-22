@@ -7,6 +7,7 @@ if(CHECK_LINUX_DRIVERS)
   set(RA_SRC
       ${RA_SRC}
       linux/RA_mir_driver.c
+      linux/RA_wayland_driver.c
       linux/RA_x11_driver.c
      )
 endif()

@@ -3,10 +3,12 @@
 
 #include <stdio.h>
 
+// TODO Move me to an actual API file, where we can check what is around and not.
 static VideoDriver* drivers[] =
 {
 #if CHECK_LINUX_DRIVERS
   &MIR_driver,
+  &WAYLAND_driver,
   &X11_driver,
 #endif
   NULL

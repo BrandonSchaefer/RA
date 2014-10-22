@@ -6,5 +6,6 @@ typedef struct VideoDriver
 
 #if CHECK_LINUX_DRIVERS
 extern VideoDriver MIR_driver;
+extern VideoDriver WAYLAND_driver;
 extern VideoDriver X11_driver;
 #endif
