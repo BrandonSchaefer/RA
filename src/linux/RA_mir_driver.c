@@ -1,4 +1,4 @@
-#include "../RA_main.h"
+#include "../RA_sys.h"
 #include "../RA_dlopen.h"
 
 #include <stddef.h>
@@ -35,4 +35,4 @@ static int MIR_Available(void)
   return ret;
 }
 
-VideoBootstrap MIR_bootstrap = { "Mir", &MIR_Available };
+VideoDriver MIR_driver = { "Mir", &MIR_Available };

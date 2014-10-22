@@ -1,5 +1,5 @@
 #include "../RA_dlopen.h"
-#include "../RA_main.h"
+#include "../RA_sys.h"
 
 #include <stddef.h>
 
@@ -32,4 +32,4 @@ static int X11_Available(void)
   return ret;
 }
 
-VideoBootstrap X11_bootstrap = { "X11", &X11_Available };
+VideoDriver X11_driver = { "X11", &X11_Available };

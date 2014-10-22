@@ -1,13 +1,13 @@
 #include <RA_config.h>
-#include "RA_main.h"
+#include "RA_sys.h"
 
 #include <stdio.h>
 
-static VideoBootstrap* drivers[] =
+static VideoDriver* drivers[] =
 {
 #if CHECK_LINUX_DRIVERS
-  &MIR_bootstrap,
-  &X11_bootstrap,
+  &MIR_driver,
+  &X11_driver,
 #endif
   NULL
 };
