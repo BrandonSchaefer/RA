@@ -27,10 +27,6 @@ install (FILES ${CMAKE_CURRENT_BINARY_DIR}/ra.pc
 
 include_directories(${CMAKE_BINARY_DIR}/include)
 
-#add_executable(../ra_test ${RA_SRC} ${RA_HDR})
-
-#target_link_libraries(../ra_test ${CMAKE_DL_LIBS})
-
 add_library (ra SHARED ${RA_SRC} ${RA_HDR})
 
 install (TARGETS ra
