@@ -1,4 +1,4 @@
-Source: ra
+Source: libra
 Section: libs
 Priority: optional
 Maintainer: Brandon Schaefer <brandon.schaefer@canonical.com>
@@ -7,7 +7,7 @@ Build-Depends: cmake,
 Standards-Version: 3.9.4
 Homepage: https://github.com/BrandonSchaefer/RA
 
-Package: ra
+Package: libra
 Architecture: any
 Depends: ${shlibs:Depends},
          ${misc:Depends},
