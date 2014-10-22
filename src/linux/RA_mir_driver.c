@@ -3,10 +3,6 @@
 
 #include <stddef.h>
 
-static void* (*connect) (char const* server, char const* app_name);
-//static void  (*release) (void* connection);
-static int   (*valid)   (void* connection);
-
 #define DEFAULT_MIR_LIB "libmirclient.so"
 
 #define MIR_CONNECT_SYNC    "mir_connect_sync"
@@ -15,6 +11,10 @@ static int   (*valid)   (void* connection);
 
 static int MIR_Available(void)
 {
+  void* (*connect) (char const* server, char const* app_name);
+  //void  (*release) (void* connection);
+  int   (*valid)   (void* connection);
+
   void* handle = NULL;
   handle  = LoadObject(DEFAULT_MIR_LIB);
 

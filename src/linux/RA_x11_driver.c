@@ -3,9 +3,6 @@
 
 #include <stddef.h>
 
-static void* (*open_display)  (char* display_name);
-static void  (*close_display) (void* display);
-
 #define DEFAULT_X11_LIB "libX11.so"
 
 #define X_OPEN_DISPLAY  "XOpenDisplay"
@@ -13,6 +10,9 @@ static void  (*close_display) (void* display);
 
 static int X11_Available(void)
 {
+  void* (*open_display)  (char* display_name);
+  void  (*close_display) (void* display);
+
   void* handle = LoadObject(DEFAULT_X11_LIB);
   int ret = 0;
 

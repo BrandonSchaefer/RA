@@ -3,9 +3,6 @@
 
 #include <stddef.h>
 
-static void* (*open_display)  (char* display_name);
-static void  (*close_display) (void* display);
-
 #define DEFAULT_WAYLAND_LIB "libwayland-client.so"
 
 #define WL_CONNECT    "wl_display_connect"
@@ -13,6 +10,9 @@ static void  (*close_display) (void* display);
 
 static int WAYLAND_Available(void)
 {
+  void* (*open_display)  (char* display_name);
+  void  (*close_display) (void* display);
+
   void* handle = LoadObject(DEFAULT_WAYLAND_LIB);
   int ret = 0;
 
