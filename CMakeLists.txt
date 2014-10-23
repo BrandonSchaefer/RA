@@ -1,10 +1,10 @@
 project(RA)
 cmake_minimum_required(VERSION 2.8.9)
 
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g3 -Wextra -Werror -Wall -Wcast-align -Wempty-body -Wformat-security -Winit-self -Warray-bounds")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wextra -Werror -Wall -Wcast-align -Wempty-body -Wformat-security -Winit-self -Warray-bounds")
 
-set(CMAKE_CXX_FLAGS_DEBUG "-g3 -O0")
-set(CMAKE_CXX_FLAGS_RELEASE "-O2")
+set(CMAKE_C_FLAGS_DEBUG   "${CMAKE_C_FLAGS_DEBUG} -g3 -O0")
+set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -O2")
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
