@@ -23,9 +23,9 @@
 
 int main()
 {
-  printf("Mir video driver is : %i\n", RA_CheckVideoDriverAvailable(MIR_DRIVER));
+  printf("Mir video driver is     : %i\n", RA_CheckVideoDriverAvailable(MIR_DRIVER));
   printf("Wayland video driver is : %i\n", RA_CheckVideoDriverAvailable(WAYLAND_DRIVER));
-  printf("X11 video driver is : %i\n", RA_CheckVideoDriverAvailable(X11_DRIVER));
+  printf("X11 video driver is     : %i\n", RA_CheckVideoDriverAvailable(X11_DRIVER));
 
   return 0;
 }
