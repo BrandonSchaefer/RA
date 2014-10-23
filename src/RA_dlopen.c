@@ -36,7 +36,7 @@ void* LoadObject(char const* sofile)
   char const* load_error = (char*)dlerror();
 
   if (DebugModeOn() && handle == NULL)
-    fprintf(stderr, "Failed to load %s - Error: %s", sofile, load_error);
+    fprintf(stderr, "Failed to load %s - Error: %s\n", sofile, load_error);
 
   return handle;
 }
